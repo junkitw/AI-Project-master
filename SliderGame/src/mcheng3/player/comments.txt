@@ -1,0 +1,44 @@
+/***
+ * Name: Jun Kit Wong
+ * Student Number: 731740
+ * 
+ * Name: Michael Cheng
+ * Student Number: 758456
+ */
+
+Each evaluation was a result of creative heuristics thought out by actually playing the game with each other. 
+Each evaluation aspect of the AI includes the evaluation for a state that is equal and opposite. This means that
+any advantageous state or move carries a better utility and at the same time deducts our utility if the opponent carries out an advantageous
+move as well.
+ 
+1) evaluateBlock()
+This evaluation aspect basically gives a better score if the AI player manages to block one of the opposing players' pieces. In contrast, 
+points are also deducted if the player is being blocked by the opposing player or even just a "B" in the game.
+
+2) evaluateVictoryCond()
+This evaluation evaluates the current state of the board and determines how close each player is close to winning the game based on the remaining number of 
+players' pieces left. The fewer the better. The fewer, the higher score.
+
+3) evaluateLoseCond()
+This evaluation works the opposite as evaluateVictoryCond() where the more pieces left on the board of each state, more score is deducted.
+
+4) evaluateDistance() and evaluateDistanceOpp()
+These two evaluation functions just rewards the player with a better score the closer he is to the end state of the game (which is closer to the end
+of the board, which equals to the size of the board). evaluateDistanceOpp() takes into account of the opponents' distance to the edge and that score is deducted 
+from the current players' score of each state.
+
+5) evaluateRows()
+This function evaluates the board in a way where a state displaying two or more pieces of the same player is disadvantageous to the player. This could result 
+in the blocking of the players' piece from the same player and could delay the winning process. At the same time, if the opponents' pieces are blocked by the 
+same opponents' piece, that proves to be advantageous to us.
+
+6) evaluatePossibleMoves()
+This rewards the player with a higher score if the player makes a move resulting in a state where each piece has more legal moves. This opens up 
+more opportunities for each piece and is proven to be advantageous.
+
+7) evaluate()
+Finally, this evaluation just sums of the score from each of the evaluation functions from above. Different weightages for each evaluations is also given
+based on each of the evaluations' significance.
+
+
+One of the classes used is Result which is just for the minimax return value. Result class is just consisted of the Objects of Move and Score for each state.

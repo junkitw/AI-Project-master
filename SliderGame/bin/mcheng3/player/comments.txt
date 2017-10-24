@@ -1,0 +1,44 @@
+/***
+ * Name: Jun Kit Wong
+ * Student Number: 731740
+ * 
+ * Name: Michael Cheng
+ * Student Number: 758456
+ */
+
+Setting Coordinates Algorithm:
+
+Input Stream = System.in;
+Size = Stream.nextInteger();
+board = List of cells;
+for i = size-1, i -> 0
+	for j =0, j -> size
+		board.add(cell(j, i, Stream.next());
+
+The complexity for setting the coordinates of the cells on the board created is O(n) because you go through the file once and assign the positions of the cell.
+
+
+Searching Algorithm:
+
+getAdjacentCell(target);
+for Cell in board;
+	if cell adjacent to target;
+		return cell;
+	
+	return null;
+
+The complexity of searching for the adjacent cell to the "target" which is the player cell is O(n) for worst case and O(1) for best case. Worst case is when you go through the whole list to find the adjacent cells. Best case is if the adjacent cell is in the first position. This is the same for all the directions from the target cell. 
+
+	
+Count Valid Moves Algorithm:
+
+for each cell in Board;
+	if cell equal to "move" cell;
+		if getAdjacentCell(move) = valid move;
+			count++;
+
+The complexity for counting the valid moves is O(n^2) in the worst case when the entire board are move cells but in this project, it is highly unlikely. Therefore, it should not be O(n^2).
+
+	
+
+To improve, a HashMap with two integer keys representing coordinates and the value being each cell should be used instead of an ArrayList. This way, the complexity for searching and retrieving the desired cells would be O(1). 	
